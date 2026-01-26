@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据分析平台</title>
+    <!-- 导入Bootstrap和其他必要的CDN资源 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: #c1d8f5;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        .slogan {
+            text-align: center;
+            padding: 20px;
+            background-color: #c1d8f5;
+            color: #333;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 8px;
+        }
+        .navbar {
+            margin-bottom: 20px;
+        }
+        .module {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .nav-pills > li.active > a {
+            background-color: #357ab7;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="slogan">
+                <p>计信学院2025学年秋季学期开课数据可视化分析</p>
+            </div>
+            <div class="col-md-4" style=" text-align: right;background-color: #f2f2f2;color: #357ab7;padding: 10px;font-weight: bold;font-size: 15px;">指导老师：王帅     &nbsp;  &nbsp;    作者：王贤安 </div>
+            <div class="col-md-8" style=" text-align: right;background-color: #f2f2f2;color: #357ab7;padding: 10px;font-weight: bold;font-size: 15px;">数据来源：上海第二工业大学教学管理系统https://jx.sspu.edu.cn/eams/scheduleSearch.action<br> </div>
+        </div>
+    </nav>
+
+    <!-- 主体内容区域 -->
+    <div class="container">
+        <div class="row">
+            <!-- 左侧导航 -->
+            <div class="col-md-2">
+                <div class="module">
+                    <ul class="nav nav-pills nav-stacked" id="nav-menu">
+                        <li class="active"><a href="#" onclick="showChart('teacher_workload', this)">教师工作量分析</a></li>
+                        <li><a href="#" onclick="showChart('course_category_distribution', this)">课程类别分布</a></li>
+                        <li><a href="#" onclick="showChart('foundation_course_comparison', this)">公共基础课课程分布</a></li>
+                        <li><a href="#" onclick="showChart('course_name_wordcloud', this)">课程名称词云</a></li>
+                        <li><a href="#" onclick="showChart('credits_vs_weeks', this)">课时、学分、周数关系分析</a></li>
+                        <li><a href="#" onclick="showChart('credits_distribution_3d', this)">3D分析</a></li>
+                        <li><a href="#" onclick="showChart('weekly_course_distribution', this)">每周课程分布分析</a></li>
+                        <li><a href="#" onclick="showChart('course_capacity', this)">课程容量分析</a></li>
+                        <li><a href="#" onclick="showChart('class_size_comparison', this)">24届新生班级大小对比</a></li>
+                        <li><a href="#" onclick="showChart('profession_comparison', this)">各专业学分、学时对比</a></li>
+                        <li><a href="#" onclick="showChart('profession_course_distribution', this)">各专业课程分布</a></li>
+                        <li><a href="#" onclick="showChart('digital_media_course_analysis', this)">数字媒体专业课程分析</a></li>
+                        <li><a href="#" onclick="showChart('big_data_profession_analysis', this)">大数据专业课程分析</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 右侧图表区域 -->
+            <div class="col-md-10">
+                <div class="module" id="charts">
+                    <p>请选择左侧的分析内容来查看相应的图表。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 默认加载教师工作量分析图
+        window.onload = function() {
+            showChart('teacher_workload');
+        };
+
+        // 切换显示图表并高亮导航
+        function showChart(chartId, element = null) {
+            const charts = document.getElementById('charts');
+            charts.innerHTML = '<object type="text/html" data="/' + chartId + '" width="100%" height="600px" style="border: 0;"></object>';
+
+            // 移除所有导航项的高亮
+            const navItems = document.querySelectorAll('#nav-menu li');
+            navItems.forEach(function(item) {
+                item.classList.remove('active');
+            });
+
+            // 为当前导航项添加高亮
+            if (element) {
+                element.parentElement.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

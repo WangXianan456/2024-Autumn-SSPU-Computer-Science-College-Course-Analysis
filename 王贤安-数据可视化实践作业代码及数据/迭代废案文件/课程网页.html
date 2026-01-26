@@ -1,0 +1,712 @@
+<body>
+    <div id="cboxOverlay" style="display: none;"></div>
+    <div id="colorbox" class="" style="padding-bottom: 42px; padding-right: 42px; display: none;">
+        <div id="cboxWrapper" style="">
+            <div style="">
+                <div id="cboxTopLeft" style="float: left;"></div>
+                <div id="cboxTopCenter" style="float: left;"></div>
+                <div id="cboxTopRight" style="float: left;"></div>
+            </div>
+            <div style="clear: left;">
+                <div id="cboxMiddleLeft" style="float: left;"></div>
+                <div id="cboxContent" style="float: left;">
+                    <div id="cboxLoadedContent" class="" style="width: 0px; height: 0px; overflow: hidden;"></div>
+                    <div id="cboxLoadingOverlay" class="" style=""></div>
+                    <div id="cboxLoadingGraphic" class="" style=""></div>
+                    <div id="cboxTitle" class="" style=""></div>
+                    <div id="cboxCurrent" class="" style=""></div>
+                    <div id="cboxNext" class="" style=""></div>
+                    <div id="cboxPrevious" class="" style=""></div>
+                    <div id="cboxSlideshow" class="" style=""></div>
+                    <div id="cboxClose" class="" style=""></div>
+                </div>
+                <div id="cboxMiddleRight" style="float: left;"></div>
+            </div>
+            <div style="clear: left;">
+                <div id="cboxBottomLeft" style="float: left;"></div>
+                <div id="cboxBottomCenter" style="float: left;"></div>
+                <div id="cboxBottomRight" style="float: left;"></div>
+            </div>
+        </div>
+        <div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
+    </div>
+
+    <script language="JavaScript" type="text/JavaScript" src="/eams/static/scripts/StringUtils.js"></script>
+    <div id="toolbar643184205" class="toolbar notprint">
+        <div class="toolbar-title"><img class="toolbar-icon" src="/eams/static/themes/default/icons/16x16/actions/info.png"><strong>排课查询</strong></div>
+        <div class="toolbar-msg" id="toolbar643184205_msg"></div>
+        <div class="toolbar-items" id="toolbar643184205_items"></div>
+        <div class="toolbar-line"><img height="1" width="100%" align="top" src="/eams/static/themes/default/icons/16x16/actions/keyline.png"></div>
+    </div>
+    <script type="text/javascript">
+        bar = bg.ui.toolbar("toolbar643184205", '排课查询');
+
+        bar.addHr();
+    </script>
+    <div style="background: url('/eams/static/images/semesterBarBg.png') repeat-x scroll 50% 50% #DEEDF7;border: 1px solid #AED0EA;color: #222222;font-weight: bold;height:28px;">
+        <form id="semesterForm" name="semesterForm" action="/eams/scheduleSearch!index.action" method="post" target="main">
+            <div style="margin-left:4px;margin-top:2px;float:left;line-height:22px;height:22px;">
+
+            </div>
+            <div style="margin-left:10px;margin-top:2px;float:left;line-height:18px;height:22px;">
+                <label for="semesterBar899631279" style="display: none;">项目:</label>
+                <select id="semesterBar899631279" name="project.id" style="display: none;">	<option value="1" selected="">教学</option>
+	<option value="31">辅修项目</option>
+</select>
+                <label for="semesterBar899631279Semester" class="title">学年学期:</label>
+                <input id="semesterBar899631279Semester" class="calendar-text" title="学年学期" type="text" value="" readonly="true">
+                <div class="calendar-bar">
+                    <input id="semesterCalendar_target" type="hidden" name="semester.id" value="942">
+                    <a name="prev" href="#"><img src="/eams/static/themes/default/images/semesterCalendar_prev.gif"></a>
+                    <input id="semesterCalendar_year" class="calendar-bar-input" type="text" index="16" value="" maxlength="4" size="4" readonly="true"><span>学年</span>
+                    <a name="next" href="#"><img src="/eams/static/themes/default/images/semesterCalendar_next.gif"></a>
+
+                    <a name="prev" href="#"><img src="/eams/static/themes/default/images/semesterCalendar_prev.gif"></a>
+                    <input id="semesterCalendar_term" class="calendar-bar-input" type="text" index="2" value="" size="4" readonly="true"><span>学期</span>
+                    <a name="next" href="#"><img src="/eams/static/themes/default/images/semesterCalendar_next.gif"></a>
+                    <a href="#" id="allSemester"></a>
+
+                    <table id="semesterCalendar_yearTb">
+                        <tbody>
+                            <tr>
+                                <td index="0">2007-2008</td>
+                                <td index="1">2008-2009</td>
+                                <td index="2">2009-2010</td>
+                                <td index="3">2010-2011</td>
+                            </tr>
+                            <tr>
+                                <td index="4">2011-2012</td>
+                                <td index="5">2012-2013</td>
+                                <td index="6">2013-2014</td>
+                                <td index="7">2014-2015</td>
+                            </tr>
+                            <tr>
+                                <td index="8">2015-2016</td>
+                                <td index="9">2016-2017</td>
+                                <td index="10">2017-2018</td>
+                                <td index="11">2018-2019</td>
+                            </tr>
+                            <tr>
+                                <td index="12">2019-2020</td>
+                                <td index="13">2020-2021</td>
+                                <td index="14">2021-2022</td>
+                                <td index="15">2022-2023</td>
+                            </tr>
+                            <tr>
+                                <td index="16">2023-2024</td>
+                                <td index="17">2024-2025</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="semesterCalendar_termTb">
+                        <tbody>
+                            <tr>
+                                <td val="902"><span>秋季</span>学期</td>
+                                <td val="922"><span>春季</span>学期</td>
+                                <td val="942"><span>夏季</span>学期</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <script type="text/javascript">
+                    if (jQuery.struts2_jquery.scriptCache["/static/scripts/semesterCalendar.js"]) {
+                        jQuery("#semesterBar899631279Semester").semesterCalendar({
+                            empty: "false",
+                            onChange: "",
+                            value: "942"
+                        }, "");
+                    } else {
+                        jQuery.struts2_jquery.require("/static/scripts/semesterCalendar.js", function() {
+                            jQuery("#semesterBar899631279Semester").semesterCalendar({
+                                empty: "false",
+                                onChange: "",
+                                value: "942"
+                            }, "");
+                        }, '/eams');
+                    }
+                </script>
+                <script type="text/javascript">
+                    jQuery("#semesterBar899631279").val(jQuery.post("/eams/dataQuery.action", {
+                        dataType: "projectId"
+                    }));
+                    jQuery("#semesterBar899631279").hide();
+                    jQuery("#semesterBar899631279").prev().hide();
+                    var semesterBar899631279res = jQuery.post("/eams/dataQuery.action", {
+                        entityId: ""
+                    }, function() {
+                        if (semesterBar899631279res.status == 200) {
+                            jQuery("#semesterBar899631279").empty();
+                            if (semesterBar899631279res.responseText != "") {
+                                jQuery("#semesterBar899631279").append(semesterBar899631279res.responseText);
+                            }
+                        }
+                    }, "text");
+                    jQuery("#semesterBar899631279").change(function() {
+                        jQuery.post("/eams/dataQuery!changeProjectId.action", {
+                            projectId: this.value
+                        }, function() {
+                            jQuery("#semesterBar899631279Semester")[0].getSemesters(jQuery("#semesterBar899631279Semester"), {
+                                empty: "false",
+                                value: "942"
+                            });
+                        }, "text");
+                    });
+                </script>
+                <input type="submit" value="切换学期" onclick="bg.form.submit('semesterForm',null,null,null);return false;"></div>
+        </form>
+    </div>
+    <table class="indexpanel">
+        <tbody>
+            <tr>
+                <td class="index_view">
+                    <form id="scheduleSearchForm" name="scheduleSearchForm" action="/eams/scheduleSearch!search.action" method="post" target="contentDiv">
+                        <table class="search-widget">
+                            <tbody>
+                                <tr>
+                                    <td><img src="/eams/static/themes/default/icons/16x16/actions/info.png" alt="info" class="toolbar-icon"><em>查询条件</em></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:0px"><img src="/eams/static/themes/default/icons/16x16/actions/keyline.png" height="2" width="100%" alt="keyline"></td>
+                                </tr>
+                                <input type="hidden" value="1" name="lesson.project.id">
+                                <tr>
+                                    <td class="search-item"><label for="textfield891915016">课程序号:</label><input type="text" id="textfield891915016" name="lesson.no" maxlength="32" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="textfield1203783734">课程代码:</label><input type="text" id="textfield1203783734" name="lesson.course.code" maxlength="32" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="textfield2092892881">课程名称:</label><input type="text" id="textfield2092892881" name="lesson.course.name" maxlength="32" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="select408845444">授课语言:</label><select id="select408845444" name="lesson.langType.id"><option value="">...</option><option value="31">全英文</option><option value="32">双语</option><option value="11">中文</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="select246312576">课程类别:</label><select id="select246312576" name="lesson.courseType.id"><option value="">...</option><option value="1131">通识基础课</option><option value="1">公共基础课</option><option value="1533">专业技能必修课</option><option value="1392">新媒体传播方向</option><option value="1393">创意文化方向</option><option value="911">职业技能必修课</option><option value="1155">专业模块A</option><option value="1158">专业实践</option><option value="1159">实践选修课</option><option value="1160">专业模块B</option><option value="1163">实践模块A</option><option value="1164">实践模块B</option><option value="1165">实践模块C</option><option value="1172">职业技能模块A</option><option value="1175">职业技能实践</option><option value="21">专业基础课</option><option value="22">专业课</option><option value="951">专业必修课</option><option value="832">职业技能课</option><option value="871">工程基础课</option><option value="931">体育专项</option><option value="25">实践课</option><option value="1011">实践必修课</option><option value="1452">商务模块</option><option value="1453">翻译模块</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="select2122316118">上课院系:</label><select id="select2122316118" name="lesson.teachClass.depart.id"><option value="">...</option><option value="27">经济与管理学院</option><option value="31">国际教育学院</option><option value="34">艺术与设计学院</option><option value="632">智能制造与控制工程学院</option><option value="633">计算机与信息工程学院</option><option value="652">资源与环境工程学院</option><option value="653">能源与材料学院</option><option value="672">外语与文化传播学院</option><option value="673">数理与统计学院</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="select1338852462">开课院系:</label><select id="select1338852462" name="lesson.teachDepart.id"><option value="">...</option><option value="27">经济与管理学院</option><option value="31">国际教育学院</option><option value="32">工程训练与创新教育中心</option><option value="33">体育部</option><option value="34">艺术与设计学院</option><option value="42">形势与政策</option><option value="632">智能制造与控制工程学院</option><option value="633">计算机与信息工程学院</option><option value="652">资源与环境工程学院</option><option value="653">能源与材料学院</option><option value="672">外语与文化传播学院</option><option value="673">数理与统计学院</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="teacher.name">教师:</label><input type="text" id="teacher.name" name="teacher.name" maxlength="20" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="select1428478953">教师为空:</label><select id="select1428478953" name="fake.teacher.null" onchange="switchFakeTeacherName()"><option value="">...</option><option value="0">否</option><option value="1">是</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="textfield1160644820">年级:</label><input type="text" id="textfield1160644820" name="lesson.teachClass.grade" maxlength="7" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="textfield155570503">周课时:</label><input type="text" id="textfield155570503" name="fake.weekHour" maxlength="3" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="textfield1066357244">周数:</label><input type="text" id="textfield1066357244" name="fake.weeks" maxlength="2" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label>起止周:</label> <input type="text" id="startWeekSchedule" name="startWeekSchedule" value="" maxlength="2" style="width:33px">&nbsp;-&nbsp;<input type="text" id="endWeekSchedule" name="endWeekSchedule" value="" maxlength="2"
+                                            style="width:33px">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="select1204749512">挂牌:</label><select id="select1204749512" name="fake.guapai"><option value="">...</option><option value="1">是</option><option value="0">否</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="select1228032697">星期:</label><select id="select1228032697" name="fake.time.weekday"><option value="">...</option><option value="1">星期一</option><option value="2">星期二</option><option value="3">星期三</option><option value="4">星期四</option><option value="5">星期五</option><option value="6">星期六</option><option value="7">星期日</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="select1869183377">小节:</label><select id="select1869183377" name="fake.time.unit">						<option value="">...</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+</select></td>
+                                </tr>
+                                <tr>
+                                    <td class="search-item"><label for="classroomBuildingId_search">教学楼:</label><select id="classroomBuildingId_search" name="building.id"><option value="">...</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><input type="reset" value="重置">&nbsp;&nbsp;<input type="submit" value="查询" onclick="searchTask();return false;"></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </form>
+                </td>
+                <td class="index_content">
+                    <div id="contentDiv" class="_ajax_target">
+                        <div class="grid">
+                            <div id="grid911867170_bar1" class="gridbar">
+                                <div class="toolbar-title"></div>
+                                <div class="toolbar-msg" id="grid911867170_bar1_msg"></div>
+                                <div class="gridbar-items" id="grid911867170_bar1_items">
+                                    <div class="toolbar-item" title="导出"><img class="toolbar-icon" src="/eams/static/themes/default/icons/16x16/actions/excel.png" alt="导出">导出</div>
+                                </div>
+                                <div id="grid911867170_bar1_page" class="girdbar-pgbar"><span title="点击改变页长" style="padding: 0px 2px;"><strong>1</strong> - <strong>20</strong> of <strong>594</strong></span><span style="display: none;">页码:<input class="pgbar-input" id="grid911867170_bar1_page_input"><select id="grid911867170_bar1_page_select" class="pgbar-selbox" title="每页数据量"><option value="10">10</option><option value="20">20</option><option value="30">30</option><option value="50">50</option><option value="70">70</option><option value="100">100</option><option value="200">200</option><option value="500">500</option><option value="1000">1000</option></select><input type="button" name="gogo" value="GO" class="pgbar-go"></span>
+                                    <a
+                                        href="#" style="padding: 0px 2px;">后页 ›</a><a href="#" style="padding: 0px 2px;">末页 »</a></div>
+                            </div>
+                            <table id="grid911867170" class="gridtable">
+                                <thead class="gridhead">
+                                    <tr>
+                                        <th class="gridselect-top"><input type="checkbox" name="lesson.idbox" onclick="bg.input.toggleCheckBox(document.getElementsByName('lesson.id'),event)" title="选择全部"></th>
+                                        <th width="11%" class="gridhead-sortable" id="lesson.no" title="点击按 [课程序号] 排序">课程序号</th>
+                                        <th width="7%" class="gridhead-sortable" id="lesson.course.code" title="点击按 [课程代码] 排序">课程代码</th>
+                                        <th width="12%" class="gridhead-sortable" id="lesson.course.name" title="点击按 [课程名称] 排序">课程名称</th>
+                                        <th width="10%">教师</th>
+                                        <th width="28%">排课安排(周几 节次 [周次] 教室)</th>
+                                        <th width="10%" class="gridhead-sortable" id="lesson.courseType.name" title="点击按 [课程类别] 排序">课程类别</th>
+                                        <th width="15%" class="gridhead-sortable" id="lesson.teachClass.name" title="点击按 [教学班] 排序">教学班</th>
+                                        <th width="5%" class="gridhead-sortable" id="lesson.teachClass.stdCount" title="点击按 [实际人数] 排序">实际人数</th>
+                                        <th width="3%" class="gridhead-sortable" id="lesson.teachClass.limitCount" title="点击按 [上限] 排序">上限</th>
+                                        <th width="3%" class="gridhead-sortable" id="lesson.course.period" title="点击按 [课时] 排序">课时</th>
+                                        <th width="3%" class="gridhead-sortable" id="lesson.course.credits" title="点击按 [学分] 排序">学分</th>
+                                        <th width="4%" class="gridhead-sortable" id="lesson.courseSchedule.startWeek" title="点击按 [起始周] 排序">起始周</th>
+                                        <th width="3%" class="gridhead-sortable" id="lesson." title="点击按 [周数] 排序">周数</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="grid911867170_data">
+                                    <tr class="griddata-even">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184341" type="checkbox"></td>
+                                        <td>0001</td>
+                                        <td>Y4020001</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184341" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">运动损伤实践课程</a></td>
+                                        <td>刘永智 王聪</td>
+                                        <td> 星期一 1-10 [2] 3208（少数民族专用） <br>星期一 1-10 [1] 3208（少数民族专用） <br>星期三 1-10 [2] 3208（少数民族专用） <br>星期三 1-10 [1] 3208（少数民族专用） <br>星期四 1-4 [1] 3208（少数民族专用） <br>星期四 6-9 [1] 3208（少数民族专用）
+                                        </td>
+                                        <td>公共基础课</td>
+                                        <td>少数民族预科</td>
+                                        <td>48</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184341" target="_blank" title="查看点名册">48</a>
+                                        </td>
+                                        <td>48</td>
+                                        <td>2.0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+
+                                    </tr>
+                                    <tr class="griddata-odd">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184342" type="checkbox"></td>
+                                        <td>0002</td>
+                                        <td>Y4020002</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184342" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">演讲与主持</a></td>
+                                        <td>陆飞凤</td>
+                                        <td> 星期一 1-8 [3] 4110 <br>星期五 1-8 [1-2] 4110
+                                        </td>
+                                        <td>公共基础课</td>
+                                        <td>少数民族预科</td>
+                                        <td>48</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184342" target="_blank" title="查看点名册">48</a>
+                                        </td>
+                                        <td>24</td>
+                                        <td>1.0</td>
+                                        <td>1</td>
+                                        <td>3</td>
+
+                                    </tr>
+                                    <tr class="griddata-even ">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184343" type="checkbox"></td>
+                                        <td>0003</td>
+                                        <td>b2012003</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184343" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">DSP原理与应用</a></td>
+                                        <td>戴虹</td>
+                                        <td>
+                                        </td>
+                                        <td>专业必修课</td>
+                                        <td>22通信工程A1</td>
+                                        <td>40</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184343" target="_blank" title="查看点名册">40</a>
+                                        </td>
+                                        <td>32</td>
+                                        <td>2.0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+
+                                    </tr>
+                                    <tr class="griddata-odd  ">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184344" type="checkbox"></td>
+                                        <td>0004</td>
+                                        <td>b2012078</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184344" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">摄影摄像基础</a></td>
+                                        <td>王宪</td>
+                                        <td>
+                                        </td>
+                                        <td>专业基础课</td>
+                                        <td>数字媒体技术</td>
+                                        <td>46</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184344" target="_blank" title="查看点名册">46</a>
+                                        </td>
+                                        <td>32</td>
+                                        <td>2.0</td>
+                                        <td>11</td>
+                                        <td>2</td>
+
+                                    </tr>
+                                    <tr class="griddata-even ">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184345" type="checkbox"></td>
+                                        <td>0005</td>
+                                        <td>b2012079</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184345" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">视听语言</a></td>
+                                        <td>吴嘉琪</td>
+                                        <td>
+                                        </td>
+                                        <td>专业基础课</td>
+                                        <td>数字媒体技术</td>
+                                        <td>46</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184345" target="_blank" title="查看点名册">46</a>
+                                        </td>
+                                        <td>32</td>
+                                        <td>2.0</td>
+                                        <td>1</td>
+                                        <td>3</td>
+
+                                    </tr>
+                                    <tr class="griddata-odd  ">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184346" type="checkbox"></td>
+                                        <td>0006</td>
+                                        <td>b2012257</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184346" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">手机游戏开发</a></td>
+                                        <td>吴嘉琪</td>
+                                        <td>
+                                        </td>
+                                        <td>专业模块B</td>
+                                        <td>数字媒体技术</td>
+                                        <td>28</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184346" target="_blank" title="查看点名册">49</a>
+                                        </td>
+                                        <td>48</td>
+                                        <td>3.0</td>
+                                        <td>11</td>
+                                        <td>2</td>
+
+                                    </tr>
+                                    <tr class="griddata-even ">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184347" type="checkbox"></td>
+                                        <td>0007</td>
+                                        <td>b2014007cl</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184347" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">工程伦理</a></td>
+                                        <td>李文琴</td>
+                                        <td> 星期一 3-9 [3] 4205 <br>星期二 3-9 [3] 4205 <br>星期三 2-5 [3] 4205
+                                        </td>
+                                        <td>专业必修课</td>
+                                        <td>23材料科学与工程C1 23材料科学与工程C3</td>
+                                        <td>32</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184347" target="_blank" title="查看点名册">35</a>
+                                        </td>
+                                        <td>16</td>
+                                        <td>1.0</td>
+                                        <td>1</td>
+                                        <td>12</td>
+
+                                    </tr>
+                                    <tr class="griddata-odd  ">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184348" type="checkbox"></td>
+                                        <td>0008</td>
+                                        <td>b2014027</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184348" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">工程伦理</a></td>
+                                        <td>李文琴</td>
+                                        <td> 星期四 1-4 [2] 4109 <br>星期四 6-9 [2] 4109
+                                        </td>
+                                        <td>工程基础课</td>
+                                        <td>23新能源科学与工程A1</td>
+                                        <td>30</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184348" target="_blank" title="查看点名册">32</a>
+                                        </td>
+                                        <td>8</td>
+                                        <td>0.5</td>
+                                        <td>1</td>
+                                        <td>12</td>
+
+                                    </tr>
+                                    <tr class="griddata-even     ">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184349" type="checkbox"></td>
+                                        <td>0009</td>
+                                        <td>b2021054</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184349" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">日本企业经营概况</a></td>
+                                        <td>朱倩</td>
+                                        <td> 星期二 5-5 [1-2] 4306 <br>星期二 1-4 [1-3] 4306 <br>星期四 3-8 [1-3] 4306
+                                        </td>
+                                        <td>专业必修课</td>
+                                        <td>日语S</td>
+                                        <td>21</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184349" target="_blank" title="查看点名册">21</a>
+                                        </td>
+                                        <td>32</td>
+                                        <td>2.0</td>
+                                        <td>1</td>
+                                        <td>3</td>
+
+                                    </tr>
+                                    <tr class="griddata-odd   ">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184350" type="checkbox"></td>
+                                        <td>0010</td>
+                                        <td>b2021063</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184350" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">商务礼仪与沟通</a></td>
+                                        <td>高翼</td>
+                                        <td> 星期二 1-8 [11-12] 4301 <br>星期四 1-8 [11-12] 4301
+                                        </td>
+                                        <td>专业必修课</td>
+                                        <td>日语S</td>
+                                        <td>21</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184350" target="_blank" title="查看点名册">21</a>
+                                        </td>
+                                        <td>32</td>
+                                        <td>2.0</td>
+                                        <td>11</td>
+                                        <td>2</td>
+
+                                    </tr>
+                                    <tr class="griddata-even">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184351" type="checkbox"></td>
+                                        <td>0011</td>
+                                        <td>b4012051</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184351" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">数据结构与算法课程实习</a></td>
+                                        <td>吴嘉琪</td>
+                                        <td>
+                                        </td>
+                                        <td>实践必修课</td>
+                                        <td>数字媒体技术</td>
+                                        <td>49</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184351" target="_blank" title="查看点名册">50</a>
+                                        </td>
+                                        <td>72</td>
+                                        <td>3.0</td>
+                                        <td>11</td>
+                                        <td>2</td>
+
+                                    </tr>
+                                    <tr class="griddata-odd">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184352" type="checkbox"></td>
+                                        <td>0012</td>
+                                        <td>b4012051</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184352" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">数据结构与算法课程实习</a></td>
+                                        <td>贺海晖</td>
+                                        <td> 星期一 1-9 [11-12] <br>星期二 1-9 [11-12] <br>星期三 1-9 [11-12] <br>星期四 1-9 [11-12]
+                                        </td>
+                                        <td>实践必修课</td>
+                                        <td>23软件工程A1</td>
+                                        <td>44</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184352" target="_blank" title="查看点名册">50</a>
+                                        </td>
+                                        <td>72</td>
+                                        <td>3.0</td>
+                                        <td>11</td>
+                                        <td>2</td>
+
+                                    </tr>
+                                    <tr class="griddata-even">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184353" type="checkbox"></td>
+                                        <td>0013</td>
+                                        <td>b4012054</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184353" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">数据库系统课程实习</a></td>
+                                        <td>闫昱</td>
+                                        <td> 星期一 1-8 [1-2] <br>星期二 1-8 [1-2] <br>星期五 1-8 [1-2]
+                                        </td>
+                                        <td>实践必修课</td>
+                                        <td>22软件工程A1</td>
+                                        <td>48</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184353" target="_blank" title="查看点名册">55</a>
+                                        </td>
+                                        <td>48</td>
+                                        <td>2.0</td>
+                                        <td>1</td>
+                                        <td>2</td>
+
+                                    </tr>
+                                    <tr class="griddata-odd">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184354" type="checkbox"></td>
+                                        <td>0014</td>
+                                        <td>b4012054</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184354" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">数据库系统课程实习</a></td>
+                                        <td>王家辉</td>
+                                        <td>
+                                        </td>
+                                        <td>实践必修课</td>
+                                        <td>数据科学与大数据技术</td>
+                                        <td>49</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184354" target="_blank" title="查看点名册">50</a>
+                                        </td>
+                                        <td>48</td>
+                                        <td>2.0</td>
+                                        <td>1</td>
+                                        <td>3</td>
+
+                                    </tr>
+                                    <tr class="griddata-even">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184355" type="checkbox"></td>
+                                        <td>0015</td>
+                                        <td>b4012054</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184355" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">数据库系统课程实习</a></td>
+                                        <td>闫季鸿</td>
+                                        <td>
+                                        </td>
+                                        <td>实践必修课</td>
+                                        <td>22网络工程A1</td>
+                                        <td>37</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184355" target="_blank" title="查看点名册">42</a>
+                                        </td>
+                                        <td>48</td>
+                                        <td>2.0</td>
+                                        <td>11</td>
+                                        <td>2</td>
+
+                                    </tr>
+                                    <tr class="griddata-odd">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184356" type="checkbox"></td>
+                                        <td>0016</td>
+                                        <td>b4021007</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184356" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">实用翻译工作坊</a></td>
+                                        <td>姚红梅</td>
+                                        <td> 星期四 1-8 [2-3] 15110(语音室2) <br>星期五 1-8 [2] 15110(语音室2)
+                                        </td>
+                                        <td>翻译模块</td>
+                                        <td>21英语A1 21英语A2 23英语S1</td>
+                                        <td>28</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184356" target="_blank" title="查看点名册">40</a>
+                                        </td>
+                                        <td>24</td>
+                                        <td>1.0</td>
+                                        <td>1</td>
+                                        <td>3</td>
+
+                                    </tr>
+                                    <tr class="griddata-even">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184991" type="checkbox"></td>
+                                        <td>0017</td>
+                                        <td>b4030250</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184991" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">财务可视化实践</a></td>
+                                        <td>王曦</td>
+                                        <td>
+                                        </td>
+                                        <td>实践必修课</td>
+                                        <td>财务管理</td>
+                                        <td>82</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184991" target="_blank" title="查看点名册">80</a>
+                                        </td>
+                                        <td>24</td>
+                                        <td>1.0</td>
+                                        <td>1</td>
+                                        <td>12</td>
+
+                                    </tr>
+                                    <tr class="griddata-odd">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184358" type="checkbox"></td>
+                                        <td>0018</td>
+                                        <td>b4021008</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184358" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">文献阅读</a></td>
+                                        <td>卢军坪</td>
+                                        <td> 星期一 1-8 [1-3] 15105(语音室7) <br>星期三 1-8 [1-3] 15105(语音室7)
+                                        </td>
+                                        <td>实践必修课</td>
+                                        <td>22英语A1</td>
+                                        <td>30</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184358" target="_blank" title="查看点名册">35</a>
+                                        </td>
+                                        <td>48</td>
+                                        <td>2.0</td>
+                                        <td>1</td>
+                                        <td>3</td>
+
+                                    </tr>
+                                    <tr class="griddata-even">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184359" type="checkbox"></td>
+                                        <td>0019</td>
+                                        <td>b4021008</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184359" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">文献阅读</a></td>
+                                        <td>徐菊</td>
+                                        <td> 星期一 1-8 [1-3] 15400 <br>星期三 1-8 [1-3] 15400
+                                        </td>
+                                        <td>实践必修课</td>
+                                        <td>英语S</td>
+                                        <td>34</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184359" target="_blank" title="查看点名册">34</a>
+                                        </td>
+                                        <td>48</td>
+                                        <td>2.0</td>
+                                        <td>1</td>
+                                        <td>3</td>
+
+                                    </tr>
+                                    <tr class="griddata-odd">
+                                        <td class="gridselect"><input class="box" name="lesson.id" value="184360" type="checkbox"></td>
+                                        <td>0020</td>
+                                        <td>b4021009</td>
+                                        <td><a href="/eams/teachTaskSearch!info.action?lesson.id=184360" onclick="return bg.Go(this,'contentDiv',true)" title="查看任务详细信息">英语课堂教学实践</a></td>
+                                        <td>周洲</td>
+                                        <td> 星期二 1-8 [1-3] 15114(语音室3) <br>星期四 1-8 [1-3] 15114(语音室3)
+                                        </td>
+                                        <td>实践模块C</td>
+                                        <td>21英语A1 21英语A2 23英语S1</td>
+                                        <td>33</td>
+                                        <td> <a href="/eams/scheduleSearch!printAttendanceCheckList.action?lessonIds=184360" target="_blank" title="查看点名册">45</a>
+                                        </td>
+                                        <td>48</td>
+                                        <td>2.0</td>
+                                        <td>1</td>
+                                        <td>3</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="grid911867170_bar2" class="gridbar">
+                                <div class="toolbar-title"></div>
+                                <div class="toolbar-msg" id="grid911867170_bar2_msg"></div>
+                                <div class="gridbar-items" id="grid911867170_bar2_items">
+                                    <div class="toolbar-item" title="导出"><img class="toolbar-icon" src="/eams/static/themes/default/icons/16x16/actions/excel.png" alt="导出">导出</div>
+                                </div>
+                                <div id="grid911867170_bar2_page" class="girdbar-pgbar"><span title="点击改变页长" style="padding: 0px 2px;"><strong>1</strong> - <strong>20</strong> of <strong>594</strong></span><span style="display: none;">页码:<input class="pgbar-input" id="grid911867170_bar2_page_input"><select id="grid911867170_bar2_page_select" class="pgbar-selbox" title="每页数据量"><option value="10">10</option><option value="20">20</option><option value="30">30</option><option value="50">50</option><option value="70">70</option><option value="100">100</option><option value="200">200</option><option value="500">500</option><option value="1000">1000</option></select><input type="button" name="gogo" value="GO" class="pgbar-go"></span>
+                                    <a
+                                        href="#" style="padding: 0px 2px;">后页 ›</a><a href="#" style="padding: 0px 2px;">末页 »</a></div>
+                            </div>
+
+                        </div>
+                        <form id="form_2309790" action="/eams/scheduleSearch!search.action" method="POST" target="contentDiv"></form>
+                    </div>
+                    <script>
+                        bg.Go('/eams/scheduleSearch!search.action?lesson.semester.id=942', 'contentDiv')
+                    </script>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script language="JavaScript">
+        function searchTask(semesterId) {
+            var form = document.scheduleSearchForm;
+            bg.form.addInput(form, "lesson.semester.id", jQuery("input[name='semester.id']").val());
+            bg.form.submit(form, "scheduleSearch!search.action");
+        }
+
+        function switchFakeTeacherName() {
+            var t = jQuery(":text[name='teacher.name']")
+            if (jQuery("select[name='fake.teacher.null']").val() != 1) {
+                t.removeAttr('disabled');
+            } else {
+                t.attr('disabled', 'disabled');
+            }
+        }
+    </script>
+
+
+    <div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;"><iframe style="width: 186px; height: 197px;" src="/eams/static/scripts/my97/My97DatePicker.htm" frameborder="0" border="0" scrolling="no"></iframe></div>
+</body>
